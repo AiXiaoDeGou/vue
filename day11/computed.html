@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model='name'>
+        <h1>{{name.split('').reverse().join('')}}</h1>  -->
+        <!-- 
+            split将字符串转换成数组
+            reverse 将数组反转
+            join 写入
+        -->
+        <!-- <h2>{{name2}}</h2> -->
+
+        <input type="text" v-model='firstname' placeholder="第一个名">
+        <input type="text" v-model='secondname' placeholder="第二个名">
+        <input type="text" v-model='thirdname' placeholder="第三个名">
+        <!-- tom·json·jerry -->
+        <h1>这个人的全名是{{fullname | upper | lower}}</h1>
+        <!-- | 可以有很多个，但是以最后一个为基准 -->
+    </div>
+</body>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            firstname: 'tom',
+            secondname: 'jsom',
+            thirdname: 'jerry',
+        },
+        computed: {
+            name2() {
+                //name2是依赖于this.name的
+                //只要 this.name 变化，就会触发这个函数
+                // console.log(this.name);
+                let str = this.name.split('').reverse().join('');
+                return str;
+            },
+            fullname() {
+                return `${this.firstname}·${this.secondname}·${this.thirdname}`
+            }
+        },
+        filters: {
+            upper(val) {
+                return val.toUpperCase(); //将字体变为大写
+            },
+            lower(val){
+                return val.toLowerCase(); //将字体变为小写
+            }
+        }
+    })
+</script>

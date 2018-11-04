@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    console.log(a)
+    if (false) {
+        var a = 12;
+    }
+
+    function sum(a, b) {
+        //在私有作用域中，形参赋值先于变量提升
+        var a = 10;
+        return a + b;
+    }
+    var t = sum(1, 2)
+    console.log(t)
+
+    /*
+    全局作用域   全局变量
+    私有作用域   （函数执行   形成私有作用域）  私有变量（声明过的，形参）
+    块级作用域   用 {} 包起来的部分  只对 let和const 声明的变量起作用  es6的
+
+    var 和 let 的区别
+    1.let声明的变量不会挂载到windows下
+    2.let没有变量提升
+        console.log(q)
+        var q = 12;
+        console.log(a)
+        var a = 10;
+    3.let能识别块级作用域
+    3.let不能重复声明
+    */
+
+    for (var i = 0; i < 4; i++) {
+        var a = 12;
+    }
+    console.log(a)
+
+
+    //上级作用域
+    /*一个作用域执行，他的上级作用域跟这个函数在哪里执行没关系，
+    只跟这个函数在哪里定义有关系，在那个作用域定义，他的上级作用域就是谁*/
+
+    //作用域链
+    /*它是一个变量的查找机制，自己的作用域没有时，就往上级找，知道找到这个变量
+    当找至全局作用域时，仍没找到这个变量，这是就会报错*/
+    var a = 100;
+    function fn() {
+        var a = 12;
+        console.log(a);
+        return function () {
+            console.log(a, qqq);
+        }
+    }
+    let f = fn();
+    f();
+
+
+
+    /*小测试
+    var n = 10;
+    function outer() {
+        var n = 15;
+        function inner(n) {
+            console.log(n)
+            function center() {
+                n++;
+                console.log(n);
+            }
+            center();
+        }
+        inner(n);
+    }
+    outer();
+    */
+
+    let b = 10;
+    function fn2() {
+        console.log(b) //暂时性死区
+        let b = 12; //注释掉就会返回10
+    }
+    fn2();
+</script>

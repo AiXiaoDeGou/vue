@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #djs{
+            width:200px;
+            height:200px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id='btn'>停止</button>
+    <div id="djs"></div>
+</body>
+
+</html>
+<script>
+    /*
+    settimeout(回调函数，等待时间)
+    经过等待时间之后，执行回调函数
+    等待时间是以毫秒为单位的
+    setTimeout只执行一次
+    setInterval是不停的执行
+    */
+    // let timer = setTimeout(() => {
+    //     console.log(111)
+    // }, 1000);
+    // clearTimeout(timer) //清除定时器
+
+    // let timer2 = setInterval(() => {
+    //     console.log(22)
+    // }, 1)
+    btn.onclick = function () {
+        clearInterval(ss);
+        alert('下课啦')
+    }
+    
+
+    // setTimeout(() => {
+    //     console.log(0);
+    // }, 1000);
+    // console.log(1)
+    // //异步代码 只有在同步代码执行之后才会执行
+
+
+    /*
+    Date
+    let now = new Date(); //获取本机时间
+    now.getTime //距离1970-1-1 00:00:00 的毫秒数
+    */
+    
+    let ss = setInterval(() => {
+        let timer1 = new Date('2018-10-27 11:18:00').getTime();
+        let timer2 = new Date().getTime();
+        let time = timer1 - timer2;
+        // if(time <= 0){
+        //     clearInterval(ss);
+        //     return;
+        // }
+        let h = Math.floor(time/1000/60/60);
+        time = time - h*3600000
+        let m = Math.floor(time/60000);
+        time = time - m*60000
+        let s = Math.floor(time/1000);
+        h < 10 ? h='0'+h : h = h;
+        m < 10 ? m='0'+m : m = m;
+        s < 10 ? s='0'+s : s = s;
+        
+        djs.innerHTML = '下课倒计时:'+h+':'+m+':'+s;
+        
+    }, 1000)
+    
+
+
+</script> 

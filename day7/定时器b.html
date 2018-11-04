@@ -1,0 +1,38 @@
+let target = new Date('2018-10-27 12:00:00').getTime()
+
+// 下一步 获取当前时间 并求出两者时间差
+// 这一步 要一秒执行一次
+setInterval(()=>{
+let now = new Date().getTime();
+let time = target - now;
+// 先把 time中的整数个小时 摘出来
+// 再从剩余的时间中把整数个分钟 摘出来
+// 再从剩余的时间中把整数个秒 摘出来即可
+// 1小时 等于 3600*1000 = 3600000 毫秒
+// 这是time中包含的整数个小时
+let h = Math.floor(time/3600000);
+
+// 剩余时间
+time = time - h*3600000;
+let m = Math.floor(time/60000)
+
+time = time - m*60000;
+let s = Math.floor(time/1000);
+/* if(h < 10){
+h = '0'+h;
+}
+if(m < 10){
+m = '0' + m
+}
+if(s < 10){
+s = '0' + s;
+} */
+
+let str = `距离下课还有${h<10 ? '0'+h : h}时${m}分${s}秒`;
+let str2 = '距离下课还有'+h+'时'+m+'分'+s+'秒';
+// console.log(h,m,s,str);
+timeBox.innerHTML = str;
+
+//三元运算
+// 条件 ? 条件成立的执行 : 条件不成立的执行 
+},1000)

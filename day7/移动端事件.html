@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="odiv" style="background:#ccc;width:200px;height:200px"></div>
+</body>
+</html>
+<script>0
+    /*
+        ontouchstart //按下鼠标
+        ontouchmove //按下鼠标拖动
+        ontouchend //松开鼠标
+        跟pc端不一样 pageX这些是放在e.touches[0]中
+    */
+   odiv.ontouchstart = function (e) {
+       console.log(e);
+   }
+   odiv.ontouchmove = function (e) {
+       e.preventDefault(); //阻止页面拖动
+       console.log(e);
+   }
+   odiv.ontouchend = function (e) {
+       console.log(e);
+   }
+</script>

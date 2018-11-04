@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var ary = [1,2,3,4];
+        //添加数组
+        // ary[4] =5
+        // var n=ary.push(5,3,5,6) //给数组末尾添加项
+        // console.log(n)// n返回数组改变后的长度
+        // var ns = ary.unshift(80,99,52); //给数组首位添加
+        // console.log(ns)
+        
+        //删除
+        // var i = ary.pop()//删除数组最后一项
+        // console.log(i)
+        // var shift = ary.shift() //删除数组第一项
+        // console.log(shift)
+        
+
+        //数组排序
+        // var array = [4656,55,456,58,2,420];
+        // array.sort(function(a,b){
+        //     return a -b; //就是一个升序
+        //     // return b -a  //就是一个降序
+        // }) //sort 的返回结果是排好序之后的数组
+        // console.log(array)
+
+        
+        // array.reverse() //数组反转，跟原数组是一个地址
+        // console.log(array)
+        
+
+        //循环数组
+        ary = [10,20,30,40]
+        // ary.forEach(function(item,index){ //item是循环的数组的每一项  
+        //                                   //index是循环的每一项的索引
+        //     console.log(arguments)
+        // })
+
+        var ary2 = ary.filter(function(item , index){  
+            return false
+        })
+            console.log(ary2)
+       
+
+
+        //return的作用
+        // function fn(){
+        //     return ; //return有两个作用，一个打断函数的执行，一个是返回结果给外界，不写return是默认返回undefined
+        // }
+
+        // var fn = fn()
+        // console.log(fn)
+    </script>
+</body>
+</html>
